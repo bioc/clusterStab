@@ -1,13 +1,14 @@
 Package: clusterStab
 Title: Compute cluster stability scores for microarray data
-Version: 1.0
+Version: 1.0.0
 Author: James W. MacDonald, Debashis Ghosh, Mark Smolkin
 Description: This package can be used to estimate the number of clusters
 	in a set of microarray data, as well as test the stability of these
 	clusters.
 Maintainer: James W. MacDonald <jmacdon@med.umich.edu>
-License: LGPL version 2 or newer
+License: LLGPL version 2 or newer
 Depends: Biobase (>= 1.4.22), R (>= 1.9.0)
 Suggests: fibroEset, genefilter
 SaveImage: True
 LazyLoad: True
+biocViews: Clustering

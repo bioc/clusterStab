@@ -52,7 +52,7 @@ sub.frac = 0.8, method = "ave", adj.score = FALSE)
   for microarray data in cancer studies . BMC Bioinformatics 4, 36 - 42. }
 \author{ James W. MacDonald <jmacdon@med.umich.edu>}
 \examples{
-data(eset)
-clusterComp(eset, 3)
+data(sample.exprSet)
+clusterComp(sample.exprSet, 3)
 }
 \keyword{cluster }% at least one, from doc/KEYWORDS

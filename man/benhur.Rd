@@ -64,8 +64,8 @@
   further modifications by James W. MacDonald <jmacdon@med.umich.edu>}
 
 \examples{
-data(eset)
-tmp <- benhur(eset, 0.7, 5)
+data(sample.exprSet)
+tmp <- benhur(sample.exprSet, 0.7, 5)
 hist(tmp)
 ecdf(tmp)
 }

@@ -14,13 +14,15 @@
  is supported.
 }
 \usage{
+\S4method{clusterComp}{ExpressionSet}(object, cl, seednum = NULL, B = 100,
+sub.frac = 0.8, method = "ave", adj.score = FALSE)
 \S4method{clusterComp}{exprSet}(object, cl, seednum = NULL, B = 100,
 sub.frac = 0.8, method = "ave", adj.score = FALSE)
 \S4method{clusterComp}{matrix}(object, cl, seednum = NULL, B = 100,
 sub.frac = 0.8, method = "ave", adj.score = FALSE)
 }
 \arguments{
-  \item{object}{Either a matrix or \code{exprSet} }
+  \item{object}{Either a matrix, \code{ExpressionSet}, or \code{exprSet} }
   \item{cl}{ The number of clusters. This may be estimated using \code{benhur}}
   \item{seednum}{A value to pass to \code{set.seed}, which will allow
     for exact reproducibility at a later date.}
@@ -52,7 +54,7 @@ sub.frac = 0.8, method = "ave", adj.score = FALSE)
   for microarray data in cancer studies . BMC Bioinformatics 4, 36 - 42. }
 \author{ James W. MacDonald <jmacdon@med.umich.edu>}
 \examples{
-data(sample.exprSet)
-clusterComp(sample.exprSet, 3)
+data(sample.ExpressionSet)
+clusterComp(sample.ExpressionSet, 3)
 }
 \keyword{cluster }% at least one, from doc/KEYWORDS

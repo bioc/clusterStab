@@ -251,6 +251,14 @@ setMethod("benhur", "exprSet", function(object, freq, upper, seednum = NULL, lin
             iterations = iterations)
 })
 
+setMethod("benhur", "ExpressionSet", function(object, freq, upper, seednum = NULL, linkmeth = "average",
+                                        iterations = 100){
+  
+  object <- exprs(object)
+  do.benhur(object, freq, upper, seednum = seednum, linkmeth = linkmeth,
+            iterations = iterations)
+})
+
 
 if(is.null(getGeneric("clusterComp")))
   setGeneric("clusterComp", function(object, ...) standardGeneric("clusterComp"))
@@ -266,6 +274,14 @@ setMethod("clusterComp", "exprSet", function(object, cl, seednum = NULL, B = 100
                                              sub.frac = 0.8, method = "ave", adj.score = FALSE){
   
   object <- object@exprs
+  do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
+                 adj.score = adj.score)
+})
+
+setMethod("clusterComp", "ExpressionSet", function(object, cl, seednum = NULL, B = 100,
+                                             sub.frac = 0.8, method = "ave", adj.score = FALSE){
+  
+  object <- exprs(object)
   do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
                  adj.score = adj.score)
 })

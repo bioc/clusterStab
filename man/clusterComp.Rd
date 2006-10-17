@@ -4,7 +4,6 @@
 \alias{do.clusterComp}
 \alias{clusterComp-methods}
 \alias{clusterComp,matrix-method}
-\alias{clusterComp,exprSet-method}
 \alias{clusterComp,ExpressionSet-method}
 
 
@@ -17,13 +16,11 @@
 \usage{
 \S4method{clusterComp}{ExpressionSet}(object, cl, seednum = NULL, B = 100,
 sub.frac = 0.8, method = "ave", adj.score = FALSE)
-\S4method{clusterComp}{exprSet}(object, cl, seednum = NULL, B = 100,
-sub.frac = 0.8, method = "ave", adj.score = FALSE)
 \S4method{clusterComp}{matrix}(object, cl, seednum = NULL, B = 100,
 sub.frac = 0.8, method = "ave", adj.score = FALSE)
 }
 \arguments{
-  \item{object}{Either a matrix, \code{ExpressionSet}, or \code{exprSet} }
+  \item{object}{Either a matrix or \code{ExpressionSet}}
   \item{cl}{ The number of clusters. This may be estimated using \code{benhur}}
   \item{seednum}{A value to pass to \code{set.seed}, which will allow
     for exact reproducibility at a later date.}

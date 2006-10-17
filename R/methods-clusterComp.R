@@ -8,6 +8,7 @@ setMethod("clusterComp", "matrix", function(object, cl, seednum = NULL, B = 100,
 setMethod("clusterComp", "exprSet", function(object, cl, seednum = NULL, B = 100,
                                              sub.frac = 0.8, method = "ave", adj.score = FALSE){
   
+  .Deprecated(msg=Biobase:::EXPRSET_DEPR_MSG)
   object <- object@exprs
   do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
                  adj.score = adj.score)

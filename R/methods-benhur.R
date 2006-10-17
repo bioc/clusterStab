@@ -8,7 +8,8 @@ setMethod("benhur", "matrix", function(object, freq, upper, seednum = NULL, link
 
 setMethod("benhur", "exprSet", function(object, freq, upper, seednum = NULL, linkmeth = "average",
                                         iterations = 100){
-  
+
+  .Deprecated(msg=Biobase:::EXPRSET_DEPR_MSG)
   object <- object@exprs
   do.benhur(object, freq, upper, seednum = seednum, linkmeth = linkmeth,
             iterations = iterations)

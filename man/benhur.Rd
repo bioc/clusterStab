@@ -4,7 +4,6 @@
 \alias{do.benhur}
 \alias{benhur-methods}
 \alias{benhur,matrix-method}
-\alias{benhur,exprSet-method}
 \alias{benhur,ExpressionSet-method}
 
 \title{A Function to Estimate the Number of Clusters in Microarray Data }
@@ -15,14 +14,12 @@
 \usage{
 \S4method{benhur}{ExpressionSet}(object, freq, upper, seednum = NULL,
 linkmeth = "average", iterations = 100)
-\S4method{benhur}{exprSet}(object, freq, upper, seednum = NULL, linkmeth
-= "average", iterations = 100)
 \S4method{benhur}{matrix}(object, freq, upper, seednum = NULL, linkmeth
 = "average", iterations = 100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{object}{Either a matrix, \code{ExpressionSet}, or an \code{exprSet} }
+  \item{object}{Either a matrix or \code{ExpressionSet} }
   \item{freq}{ The proportion of samples to use. This should be
     somewhere between 0.6 - 0.8 for best results.}
   \item{upper}{ The upper limit for number of clusters.}

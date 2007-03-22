@@ -5,6 +5,7 @@
 \alias{clusterComp-methods}
 \alias{clusterComp,matrix-method}
 \alias{clusterComp,ExpressionSet-method}
+\alias{clusterComp,exprSet-method}
 
 
 \title{ Estimate Microarray Cluster Stability}

@@ -9,6 +9,6 @@ Maintainer: James W. MacDonald <jmacdon@med.umich.edu>
 License: Artistic
 Depends: Biobase (>= 1.4.22), R (>= 1.9.0), methods
 Suggests: fibroEset, genefilter
-SaveImage: True
+LazyLoad: True
 LazyLoad: True
 biocViews: Clustering

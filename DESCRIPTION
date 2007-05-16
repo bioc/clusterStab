@@ -10,5 +10,4 @@ License: Artistic
 Depends: Biobase (>= 1.4.22), R (>= 1.9.0), methods
 Suggests: fibroEset, genefilter
 LazyLoad: True
-LazyLoad: True
 biocViews: Clustering

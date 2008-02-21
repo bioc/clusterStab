@@ -91,10 +91,10 @@ will be based on user requests.
 \section{A Simple Example}
 
 For this example we will be using the \Rpackage{fibroEset} package, which
-contains an \Rfunction{exprSet} with 46 samples and 12625 genes. There are 11
-bonobo samples, 12 gorilla samples, and 23 human samples, so I would expect
-either two or three clusters, depending on how well the bonobo and gorilla
-samples cross-hybridize to Affymetrix HG-U95Av2 chips.
+contains an \Rfunction{ExpressionSet} object with 46 samples and 12625 genes.
+There are 11 bonobo samples, 12 gorilla samples, and 23 human samples, so I
+would expect either two or three clusters, depending on how well the bonobo
+and gorilla samples cross-hybridize to Affymetrix HG-U95Av2 chips.
 
 This is of course too many genes to cluster, so we will start by selecting 
 only those genes that appear to be differentially expressed. Here I will 

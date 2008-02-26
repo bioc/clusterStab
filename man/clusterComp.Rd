@@ -5,10 +5,8 @@
 \alias{clusterComp-methods}
 \alias{clusterComp,matrix-method}
 \alias{clusterComp,ExpressionSet-method}
-\alias{clusterComp,exprSet-method}
 
-
-\title{ Estimate Microarray Cluster Stability}
+\title{Estimate Microarray Cluster Stability}
 \description{
  This function estimates the stability of clustering solutions using
  microarray data. Currently only agglomerative hierarchical clustering
@@ -41,17 +39,15 @@ sub.frac = 0.8, method = "ave", adj.score = FALSE)
   of the subsamples to the original clusters.
 }
 \value{
-  
   The output from this function is an object of class \code{clusterComp}. See
   the \code{clusterComp-class} man page for more information.
-  
 }
-\references{ A. Ben-Hur, A. Elisseeff and I. Guyon. A stability based
+\references{A. Ben-Hur, A. Elisseeff and I. Guyon. A stability based
   method for discovering structure in clustered data. Pacific Symposium
   on Biocomputing, 2002.
   Smolkin, M. and Ghosh, D. (2003).  Cluster stability scores
-  for microarray data in cancer studies . BMC Bioinformatics 4, 36 - 42. }
-\author{ James W. MacDonald <jmacdon@med.umich.edu>}
+  for microarray data in cancer studies . BMC Bioinformatics 4, 36 - 42.}
+\author{James W. MacDonald <jmacdon@med.umich.edu>}
 \examples{
 data(sample.ExpressionSet)
 clusterComp(sample.ExpressionSet, 3)

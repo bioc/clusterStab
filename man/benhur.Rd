@@ -5,7 +5,6 @@
 \alias{benhur-methods}
 \alias{benhur,matrix-method}
 \alias{benhur,ExpressionSet-method}
-\alias{benhur,exprSet-method}
 
 \title{A Function to Estimate the Number of Clusters in Microarray Data }
 \description{

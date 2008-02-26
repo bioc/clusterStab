@@ -5,15 +5,6 @@ setMethod("clusterComp", "matrix", function(object, cl, seednum = NULL, B = 100,
                  adj.score = adj.score)
 })
 
-setMethod("clusterComp", "exprSet", function(object, cl, seednum = NULL, B = 100,
-                                             sub.frac = 0.8, method = "ave", adj.score = FALSE){
-  
-  .Deprecated(msg=Biobase:::EXPRSET_DEPR_MSG)
-  object <- object@exprs
-  do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
-                 adj.score = adj.score)
-})
-
 setMethod("clusterComp", "ExpressionSet", function(object, cl, seednum = NULL, B = 100,
                                              sub.frac = 0.8, method = "ave", adj.score = FALSE){
   
@@ -23,7 +14,6 @@ setMethod("clusterComp", "ExpressionSet", function(object, cl, seednum = NULL, B
 })
 
 ## Show method
-
 
 setMethod("show","clusterComp",
           function(object){
@@ -36,4 +26,3 @@ setMethod("show","clusterComp",
             cat("Agglomeration method:", object@method, "\n")
             cat("Original cluster membership:\n", object@clusters,"\n")
           })
-

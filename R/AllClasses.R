@@ -1,6 +1,6 @@
 ## Class for benhur object
 
-setClass("benhur", representation(jaccards = "list",
+setClass("BenHur", representation(jaccards = "list",
                                   size = "vector",
                                   iterations  = "vector",
                                   freq = "vector"),
@@ -10,7 +10,7 @@ setClass("benhur", representation(jaccards = "list",
 
 ## Define a class for clusterComp
 
-setClass("clusterComp", representation(clusters = "vector",
+setClass("ClusterComp", representation(clusters = "vector",
                                        percent = "vector",
                                        freq = "vector",
                                        clusternum = "vector",

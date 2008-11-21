@@ -7,7 +7,7 @@ setMethod("clusterComp", "matrix", function(object, cl, seednum = NULL, B = 100,
 
 setMethod("clusterComp", "ExpressionSet", function(object, cl, seednum = NULL, B = 100,
                                              sub.frac = 0.8, method = "ave", adj.score = FALSE){
-  
+
   object <- exprs(object)
   do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
                  adj.score = adj.score)
@@ -15,7 +15,7 @@ setMethod("clusterComp", "ExpressionSet", function(object, cl, seednum = NULL, B
 
 ## Show method
 
-setMethod("show","clusterComp",
+setMethod("show","ClusterComp",
           function(object){
             stab.out <- matrix(paste(round(object@percent, 0), "%", sep=""), nr = 1)
             dimnames(stab.out) <- list("Cluster stability: ", 1:length(object@percent))

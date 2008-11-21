@@ -1,18 +1,18 @@
-\name{clusterComp-class}
+\name{ClusterComp-class}
 \docType{class}
-\alias{clusterComp-class}
-\alias{show,clusterComp-method}
+\alias{ClusterComp-class}
+\alias{show,ClusterComp-method}
 
-\title{Class "clusterComp" a class for testing the stability of clusters
+\title{Class "ClusterComp" a class for testing the stability of clusters
 in microarray data}
 \description{A specialized class representation used for testing the
   stability of clusters in microarray data.}
 \section{Objects from the Class}{
 Objects are usually created by a call to \code{clusterComp}, although
 technically objects can be created by calls of the form
-\code{new("clusterComp", ...)}. However, the latter is probably not
+\code{new("ClusterComp", ...)}. However, the latter is probably not
 worth doing.
- 
+
 }
 \section{Slots}{
   \describe{
@@ -34,7 +34,7 @@ worth doing.
 }
 \section{Methods}{
   \describe{
-    \item{show}{\code{signature(object = "clusterComp")}: Give a nice
+    \item{show}{\code{signature(object = "ClusterComp")}: Give a nice
       summary of results. }
   }
 }

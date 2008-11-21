@@ -1,18 +1,18 @@
-\name{benhur-class}
+\name{BenHur-class}
 \docType{class}
-\alias{benhur-class}
-\alias{ecdf,benhur-method}
-\alias{hist,benhur-method}
-\alias{show,benhur-method}
+\alias{BenHur-class}
+\alias{ecdf,BenHur-method}
+\alias{hist,BenHur-method}
+\alias{show,BenHur-method}
 
-\title{Class "benhur", a class for estimating clusters in microarray
+\title{Class "BenHur", a class for estimating clusters in microarray
   data, and methods for visualizing them.}
 \description{A specialized class representation used for estimating
   clusters in microarray data.}
 \section{Objects from the Class}{
 Objects are usually created by a call to \code{benhur}, although
 technically a new object can also be created by a call to
-\code{new("benhur",...)}. However, this second method is usually not
+\code{new("BenHur",...)}. However, this second method is usually not
 worth the work required.
 }
 \section{Slots}{
@@ -29,16 +29,16 @@ worth the work required.
 }
 \section{Methods}{
   \describe{
-    \item{ecdf}{\code{signature(x = "benhur")}: Plot an empirical
+    \item{ecdf}{\code{signature(x = "BenHur")}: Plot an empirical
       CDF. This can be used to help determine the number of clusters in
       the data. The most likely (e.g., most stable number) of clusters
       will have a CDF that is concentrated at or near one. See vignette
       for more information.}
-    \item{hist}{\code{signature(x = "benhur")}: Plot histograms for all
+    \item{hist}{\code{signature(x = "BenHur")}: Plot histograms for all
       clusters tested. The most likely (e.g., most stable number) of
       clusters will have a histogram in which the data are clustered at
       or near one. See vignette for more information.}
-    \item{show}{\code{signature(object = "benhur")}: Gives a nice
+    \item{show}{\code{signature(object = "BenHur")}: Gives a nice
       summary. }
   }
 }

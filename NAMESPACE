@@ -1,0 +1,9 @@
+## Need these so I don't clobber them
+importFrom("stats", ecdf)
+importFrom("graphics", hist)
+
+exportClasses(BenHur, ClusterComp)
+
+exportMethods(ecdf, hist, benhur, clusterComp)
+
+

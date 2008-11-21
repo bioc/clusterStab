@@ -54,74 +54,74 @@
 ################################################################################################
 
 do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average",  iterations = 100){
-  
+
   if(!is.null(seednum))
     set.seed(seednum)
   require(stats, quietly = TRUE)
-  
+
   ## Microarray data is usually samples in columns, genes in rows, so we must transpose
   dat <- t(object)
   size <- ceiling((upper-1)/4)
   samples <- dim(dat)[1]
   n <- dim(dat)[2]
-  
+
   jaccardmatrix <- NULL
-  
-  
+
+
   ## Make a list to hold jaccard matrices
-  
+
   jaccards <- vector("list", length = (upper - 1))
-  
-  
+
+
   for(m in 1:iterations){
     sampleone <- sample(1:samples, freq*samples, replace = FALSE)
     sampletwo <- sample(1:samples, freq*samples, replace = FALSE)
-    
+
     subone <- dat[sampleone,]
     subtwo <- dat[sampletwo,]
-    
-    
-    
+
+
+
     clustone <- hclust(dist(subone), method = linkmeth)
     clusttwo <- hclust(dist(subtwo), method = linkmeth)
-    
-    
+
+
     ##Checking for intersection
-    
+
     inboth <- sampleone[sampleone %in% sampletwo]
-    
-    
+
+
     for(k in 2:upper){
-      
+
       ## Cut the trees
-      
+
       cutone <- cutree(clustone, k)
       cuttwo <- cutree(clusttwo, k)
-      
+
       ## Cluster membership for intersecting samples
-      
+
       ord <- 1:length(sampleone)
-      
+
       placeone <- cutone[ord[match(inboth, sampleone)]]
       placetwo <- cuttwo[ord[match(inboth, sampletwo)]]
-      
-      
+
+
       ## This code forms the 'C' matrices s.t. Cij = 1 if xi and xj belong to the same cluster
       ## and i and j are not equal. Cij = 0 otherwise
-      
+
       m.dim <- length(placeone)
       Cone <- matrix(placeone, nr = m.dim, nc = m.dim) == matrix(placeone, nr = m.dim, nc = m.dim, byrow = TRUE)
       Ctwo <- matrix(placetwo, nr = m.dim, nc = m.dim) == matrix(placetwo, nr = m.dim, nc = m.dim, byrow = TRUE)
       diag(Cone) <- diag(Ctwo) <- 0
-      
+
       jaccard <- sum(Cone * Ctwo)/(sum(Cone) + sum(Ctwo) - sum(Cone * Ctwo))
       jaccards[[(k-1)]] <- c(jaccards[[(k-1)]], jaccard)
     }
   }
-  
+
   ## There is a chance that some of the jaccard matrices consist of all ones, which will result
   ## in a histogram that is just a big box. To account for this possibility, we adjust the first value by 0.00001
-  
+
   jac.test <- lapply(lapply(jaccards, function(x) table(x)), function(y) length(y)) == 1
   if(any(jac.test)){
     fix.jacs <- which(jac.test)
@@ -129,13 +129,13 @@ do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average"
       jaccards[[i]][[1]] <- jaccards[[i]][[1]] - 0.0001
   }
 
-  ans <- new("benhur", jaccards = jaccards, size = size, iterations = iterations,
+  ans <- new("BenHur", jaccards = jaccards, size = size, iterations = iterations,
              freq = freq)
   ans
 }
-  
-   
- 
+
+
+
 
 ########################################################################################
 ##
@@ -144,7 +144,7 @@ do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average"
 ##  cancer studies . BMC Bioinformatics 4, 36 - 42.
 ##
 ## Copyright James W. MacDonald, 2005, all rights reserved
-## 
+##
 ##
 ## Inputs:
 ##
@@ -173,33 +173,33 @@ do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average"
 ##
 ## Genesused - the fraction of genes used for each subsampling
 ##
-## 
+##
 ##
 #############################################################################################
 
 do.clusterComp <- function(object, cl, seednum = NULL, B = 100, sub.frac = 0.8, method = "ave",
                            adj.score = FALSE){
-  
+
   if(!is.null(seednum))
     set.seed(seednum)
 
-  methods <- c("ward", "single", "complete", "average", "mcquitty", 
+  methods <- c("ward", "single", "complete", "average", "mcquitty",
                "median", "centroid")
 
   ## Make sure cl is an integer
-  
+
   if(length(cl) != 1 || !is.numeric(cl))
     stop("The cl argument should only be a single number!")
-  
+
   ## Get original cluster memberships
   orig.clust <- hclust(dist(t(object)), method = method)
   orig.memb <- cutree(orig.clust, cl)
   memb.list <- vector("list", length=cl)
   for(i in 1:cl)
     memb.list[[i]] <- which(orig.memb == i)
-  
+
   ## Subsample and output cluster memberships in a matrix
-  
+
   len <- dim(object)[1]
   count <- vector("list", cl)
   cnt <- 0
@@ -220,7 +220,7 @@ do.clusterComp <- function(object, cl, seednum = NULL, B = 100, sub.frac = 0.8, 
     }else{
       percent <- sapply(count, function(x) sum(x)*100/B)
     }
-  ans <- new("clusterComp", clusters = orig.memb, percent = round(percent,2),
+  ans <- new("ClusterComp", clusters = orig.memb, percent = round(percent,2),
              freq = sub.frac, clusternum = cl, iterations = B,
              method = match.arg(method, methods))
   ans

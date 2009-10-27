@@ -1,6 +1,6 @@
 Package: clusterStab
 Title: Compute cluster stability scores for microarray data
-Version: 1.18.0
+Version: 1.19.0
 Author: James W. MacDonald, Debashis Ghosh, Mark Smolkin
 Description: This package can be used to estimate the number of clusters
 	in a set of microarray data, as well as test the stability of these

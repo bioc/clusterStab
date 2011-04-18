@@ -13,9 +13,9 @@
 }
 \usage{
 \S4method{benhur}{ExpressionSet}(object, freq, upper, seednum = NULL,
-linkmeth = "average", iterations = 100)
+linkmeth = "average", distmeth = "euclidean", iterations = 100)
 \S4method{benhur}{matrix}(object, freq, upper, seednum = NULL, linkmeth
-= "average", iterations = 100)
+= "average", distmeth = "euclidean", iterations = 100)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -26,7 +26,10 @@ linkmeth = "average", iterations = 100)
   \item{seednum}{A value to pass to \code{set.seed}, which will allow
     for exact reproducibility at a later date.}
   \item{linkmeth}{Linkage method to pass to \code{hclust}. Valid values
-    include "average", "centroid", "ward", "single", "mcquitty", or "median".}
+    include "average", "centroid", "ward", "single", "mcquitty", or
+    "median".}
+  \item{distmeth}{The distance method to use. Valid values include
+    "euclidean" and "pearson".}
   \item{iterations}{The number of iterations to use. The default of 100 is a
     reasonable number. }
 }

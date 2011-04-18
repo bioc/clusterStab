@@ -1,16 +1,17 @@
 setMethod("benhur", "matrix", function(object, freq, upper, seednum = NULL, linkmeth = "average",
-                                       iterations = 100){
+                                       distmeth = "euclidean", iterations = 100){
 
   do.benhur(object, freq, upper, seednum = seednum, linkmeth = linkmeth,
             iterations = iterations)
 })
 
 setMethod("benhur", "ExpressionSet", function(object, freq, upper, seednum = NULL,
-                                              linkmeth = "average", iterations = 100){
+                                              linkmeth = "average", distmeth = "euclidean",
+                                              iterations = 100){
 
   object <- exprs(object)
   do.benhur(object, freq, upper, seednum = seednum, linkmeth = linkmeth,
-            iterations = iterations)
+            distmeth = distmeth, iterations = iterations)
 })
 
 

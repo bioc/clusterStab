@@ -14,9 +14,9 @@
 }
 \usage{
 \S4method{clusterComp}{ExpressionSet}(object, cl, seednum = NULL, B = 100,
-sub.frac = 0.8, method = "ave", adj.score = FALSE)
+sub.frac = 0.8, method = "ave", distmeth = "euclidean", adj.score = FALSE)
 \S4method{clusterComp}{matrix}(object, cl, seednum = NULL, B = 100,
-sub.frac = 0.8, method = "ave", adj.score = FALSE)
+sub.frac = 0.8, method = "ave", distmeth = "euclidean", adj.score = FALSE)
 }
 \arguments{
   \item{object}{Either a matrix or \code{ExpressionSet}}
@@ -30,6 +30,8 @@ sub.frac = 0.8, method = "ave", adj.score = FALSE)
   \item{method}{ The linkage method to pass to \code{hclust}.  Valid values
     include "average", "centroid", "ward", "single", "mcquitty", or
     "median".}
+  \item{distmeth}{The distance method to use. Valid values include
+    "euclidean" and "pearson".}
   \item{adj.score}{Boolean. Should the stability scores be adjusted for
     cluster size? Defaults to \code{FALSE}.}
 }

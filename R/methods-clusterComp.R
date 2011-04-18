@@ -1,15 +1,19 @@
 setMethod("clusterComp", "matrix", function(object, cl, seednum = NULL, B = 100,
-                                            sub.frac = 0.8, method = "ave", adj.score = FALSE){
+                                            sub.frac = 0.8, method = "ave",
+                                            distmeth = "euclidean", adj.score = FALSE){
 
-  do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
+  do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac,
+                 method = method, distmeth = distmeth,
                  adj.score = adj.score)
 })
 
 setMethod("clusterComp", "ExpressionSet", function(object, cl, seednum = NULL, B = 100,
-                                             sub.frac = 0.8, method = "ave", adj.score = FALSE){
+                                             sub.frac = 0.8, method = "ave",
+                                                   distmeth = "euclidean", adj.score = FALSE){
 
   object <- exprs(object)
-  do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac, method = method,
+  do.clusterComp(object, cl, seednum = seednum, B = B, sub.frac = sub.frac,
+                 method = method, distmeth = distmeth,
                  adj.score = adj.score)
 })
 

@@ -53,7 +53,9 @@
 ##
 ################################################################################################
 
-do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average",  iterations = 100){
+do.benhur <- function(object, freq , upper, seednum = NULL,
+                      linkmeth = "average",  distmeth = "euclidean",
+                      iterations = 100){
 
   if(!is.null(seednum))
     set.seed(seednum)
@@ -82,8 +84,8 @@ do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average"
 
 
 
-    clustone <- hclust(dist(subone), method = linkmeth)
-    clusttwo <- hclust(dist(subtwo), method = linkmeth)
+    clustone <- hclust(makeDist(subone, distmeth), method = linkmeth)
+    clusttwo <- hclust(makeDist(subtwo, distmeth), method = linkmeth)
 
 
     ##Checking for intersection
@@ -177,22 +179,25 @@ do.benhur <- function(object, freq , upper, seednum = NULL, linkmeth = "average"
 ##
 #############################################################################################
 
-do.clusterComp <- function(object, cl, seednum = NULL, B = 100, sub.frac = 0.8, method = "ave",
+do.clusterComp <- function(object, cl, seednum = NULL, B = 100,
+                           sub.frac = 0.8, method = "ave",
+                           distmeth = "euclidean",
                            adj.score = FALSE){
 
   if(!is.null(seednum))
     set.seed(seednum)
 
-  methods <- c("ward", "single", "complete", "average", "mcquitty",
-               "median", "centroid")
+  methods <-  c("ward", "single", "complete", "average", "mcquitty", 
+        "median", "centroid")
 
-  ## Make sure cl is an integer
+   ## Make sure cl is an integer
 
   if(length(cl) != 1 || !is.numeric(cl))
     stop("The cl argument should only be a single number!")
 
-  ## Get original cluster memberships
-  orig.clust <- hclust(dist(t(object)), method = method)
+  ## Get original cluster memberships 
+  orig.clust <- hclust(makeDist(t(object), method = distmeth),
+                       method = method)
   orig.memb <- cutree(orig.clust, cl)
   memb.list <- vector("list", length=cl)
   for(i in 1:cl)
@@ -205,7 +210,8 @@ do.clusterComp <- function(object, cl, seednum = NULL, B = 100, sub.frac = 0.8, 
   cnt <- 0
   while(cnt < B){
     index <- sample(1:len, sub.frac * len, replace = FALSE)
-    tmp <- hclust(dist(t(object[index,])), method = method)
+    tmp <- hclust(makeDist(t(object[index,]), method = distmeth),
+                  method = method)
     memb <- cutree(tmp, cl)
     for(i in 1:cl){
       tst <- all(memb[memb.list[[i]]] == i)
@@ -226,3 +232,13 @@ do.clusterComp <- function(object, cl, seednum = NULL, B = 100, sub.frac = 0.8, 
   ans
 }
 
+
+
+makeDist <- function(dat, method = c("euclidean","pearson")){
+    method <- match.arg(method)
+    out <- switch(method,
+                  pearson = as.dist(1-cor(t(dat))),
+                  euclidean = dist(dat))
+    out
+}
+    

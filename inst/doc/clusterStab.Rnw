@@ -159,7 +159,8 @@ We can also look at the eCDF plot, using the \Rfunction{ecdf()} function.
 
 \begin{figure}[htbp]
 \centering
-<<fig=true>>=plot(hclust(dist(t(exprs(fibroEset[index,])))), labels = pData(fibroEset)[,2], sub="", xlab="")
+<<fig=true>>=
+plot(hclust(dist(t(exprs(fibroEset[index,])))), labels = pData(fibroEset)[,2], sub="", xlab="")
 ecdf(bh)
 @ 
 \caption{Empirical CDF plots of the fibroEset Data}

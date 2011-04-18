@@ -31,7 +31,7 @@ sub.frac = 0.8, method = "ave", distmeth = "euclidean", adj.score = FALSE)
     include "average", "centroid", "ward", "single", "mcquitty", or
     "median".}
   \item{distmeth}{The distance method to use. Valid values include
-    "euclidean" and "pearson".}
+    "euclidean" and "pearson", where pearson implies 1-pearson correlation.}
   \item{adj.score}{Boolean. Should the stability scores be adjusted for
     cluster size? Defaults to \code{FALSE}.}
 }

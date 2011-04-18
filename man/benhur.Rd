@@ -29,7 +29,7 @@ linkmeth = "average", distmeth = "euclidean", iterations = 100)
     include "average", "centroid", "ward", "single", "mcquitty", or
     "median".}
   \item{distmeth}{The distance method to use. Valid values include
-    "euclidean" and "pearson".}
+    "euclidean" and "pearson" where pearson implies 1-pearson correlation.}
   \item{iterations}{The number of iterations to use. The default of 100 is a
     reasonable number. }
 }

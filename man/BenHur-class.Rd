@@ -49,5 +49,5 @@ worth the work required.
   microarray data in cancer studies.
   BMC Bioinformatics 4, 36 - 42.
 }
-\author{James W. MacDonald <jmacdon@med.umich.edu> }
+\author{James W. MacDonald <jmacdon@u.washington.edu> }
 \keyword{classes}

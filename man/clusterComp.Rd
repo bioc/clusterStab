@@ -49,7 +49,7 @@ sub.frac = 0.8, method = "ave", distmeth = "euclidean", adj.score = FALSE)
   on Biocomputing, 2002.
   Smolkin, M. and Ghosh, D. (2003).  Cluster stability scores
   for microarray data in cancer studies . BMC Bioinformatics 4, 36 - 42.}
-\author{James W. MacDonald <jmacdon@med.umich.edu>}
+\author{James W. MacDonald <jmacdon@u.washington.edu>}
 \examples{
 data(sample.ExpressionSet)
 clusterComp(sample.ExpressionSet, 3)

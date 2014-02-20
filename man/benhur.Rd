@@ -64,7 +64,7 @@ linkmeth = "average", distmeth = "euclidean", iterations = 100)
   microarray data in cancer studies . BMC Bioinformatics 4, 36 - 42.
 }
 \author{Originally written by Mark Smolkin <marksmolkin@hotmail.com>
-  further modifications by James W. MacDonald <jmacdon@med.umich.edu>}
+  further modifications by James W. MacDonald <jmacdon@u.washington.edu>}
 
 \examples{
 data(sample.ExpressionSet)
